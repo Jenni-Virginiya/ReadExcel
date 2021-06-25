@@ -1,5 +1,6 @@
 package com.Test;
 
+//import com.Test.SendEmail;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -7,6 +8,7 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.mail.EmailException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -30,6 +32,7 @@ public class Reports {
 	ExtentSparkReporter reporter;
 	ExtentReports reports;
 	ExtentTest logger;
+	//SendEmail mail;
 
 	@BeforeTest
 	public void startTest() {
@@ -55,7 +58,7 @@ public class Reports {
 	}
 
 	@AfterMethod
-	public void captureStatus(ITestResult result) {
+	public void captureStatus(ITestResult result) throws EmailException {
 		if (result.getStatus() == ITestResult.SUCCESS) {
 			logger.log(Status.PASS, "This test is Passed");
 		} else if (result.getStatus() == ITestResult.FAILURE) {
@@ -72,7 +75,10 @@ public class Reports {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}			
+		}	
+		
+		
+		//SendEmail.send_mail();
 	}
 
 	@Test(priority = 1)
