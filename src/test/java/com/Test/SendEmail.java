@@ -12,7 +12,7 @@ public class SendEmail {
 		Email email = new SimpleEmail();
 		email.setHostName("smtp.gmail.com");
 		email.setSmtpPort(465);
-		email.setAuthenticator(new DefaultAuthenticator("jennifer.virginiya@gmail.com", "LordJesus@88"));
+		email.setAuthenticator(new DefaultAuthenticator("jennifer.virginiya@gmail.com", "admin$$01"));
 		email.setSSLOnConnect(true);
 		email.setFrom("jennifer.virginiya@gmail.com");
 		email.setSubject("Test Mail from Eclipse");
